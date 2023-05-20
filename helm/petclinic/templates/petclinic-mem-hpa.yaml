@@ -1,16 +1,29 @@
-apiVersion: autoscaling/v2beta2
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: petclinic-mem-hpa
 spec:
-  maxReplicas: 5
-  minReplicas: 1
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
     name: petclinic-deployment
+  minReplicas: 5
+  maxReplicas: 1
   metrics:
   - type: Resource
     resource:
-      name: memory
-      targetAverageUtilization: 50
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 50
+status:
+  observedGeneration: 1
+  currentReplicas: 1
+  desiredReplicas: 1
+  currentMetrics:
+  - type: Resource
+    resource:
+      name: cpu
+      current:
+        averageUtilization: 0
+        averageValue: 0
