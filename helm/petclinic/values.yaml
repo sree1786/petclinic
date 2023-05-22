@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: sree1786/petclinic
+  repository: sree1786/montor-image
   tag: latest
   pullPolicy: IfNotPresent
 
