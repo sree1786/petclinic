@@ -12,10 +12,10 @@ spec:
   metrics:
   - type: Resource
     resource:
-      name: cpu
+      name: memory
       target:
         type: Utilization
-        averageUtilization: 30
+        averageUtilization: 50
 status:
   observedGeneration: 1
   currentReplicas: 1
@@ -23,7 +23,7 @@ status:
   currentMetrics:
   - type: Resource
     resource:
-      name: cpu
+      name: memory
       current:
         averageUtilization: 0
         averageValue: 0
